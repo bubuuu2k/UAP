@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation with JavaScript</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #0d490f;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+
+    <table>
+        <table for="text1">kode: 001 Barang: Barang A Harga: 10.000</table>
+        <table for="text1">kode: 002 Barang: Barang B Harga: 20.000</table>
+        <table for="text1">kode: 003 Barang: Barang C Harga: 30.000</table>
+    </table>
+
+    <h1>Inputan users</h1>
+
+    <form id="Form">
+        <label for="Masukan Kode">Masukan Kode:</label>
+        <input type="Masukan kode" id="Masukan kode" required>
+        <br>
+        <label for="Banyaknya barang">Banyaknya barang:</label>
+        <input type="Banyaknya Barang" id="Banyaknya barang" required>
+        <button type="button" onclick="SUBMIT()">SUBMIT</button>
+        <br>
+        <button type="button" onclick="input('Total Pembayaran adalah')">Total</button>
+        <button type="button" onclick="input('Total kembalian')">Kembalian</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function input(operation) {
+            var kod = parseInt(document.getElementById('Kode').value);
+            var bar = parseInt(document.getElementById('Barang').value);
+            var Har = parseInt(document.getElementById('Harga').value);
+            
+
+            if (isNaN(kod) || isNaN(bar) || isNaN(Har)) {
+                alert('Please enter valid numbers.');
+                return;
+            }
+
+            var result;
+            switch (operation) {
+                case 'Total':
+                    result = Har + bar;
+                    break;
+                case 'Kembalian':
+                    result = Har - bar;
+                    break;
+                default:
+                    alert('Invalid operation.');
+                    return;
+            }
+            document.getElementById('result').innerText = 'Result: ' + result;
+        }
+    </script>
+
+</body>
+</html>
